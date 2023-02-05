@@ -1,0 +1,11 @@
+<p>Room no: {{roomNo}}</p>
+
+
+
+<div *ngIf="rooms.availableRooms>0">
+    <div [hidden]="hiderooms">
+        No of rooms:
+        <div [innerText]="roomNo"></div>
+    </div>
+        <button (click)="toggle()">{{ buttonName }}</button>
+</div>
