@@ -11,7 +11,7 @@
         <th scope="col"> Photo </th>
         <th scope="col">Select</th>
     </tr>
-    <tr class="col" [ngClass]="e? 'even':'odd'" *ngFor="let room of roomList|slice:0:2 let e=even; let o=odd">
+    <tr class="col" [ngClass]="e? 'even':'odd'" *ngFor="let room of roomList let e=even; let o=odd">
         <td>{{e?"even":"odd"}}</td>
         <td>{{room.roomId}}</td>
         <td>{{room.roomType}}</td>

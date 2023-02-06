@@ -1,5 +1,5 @@
-<p>Room no: {{roomNo}}</p>
-
+<!-- <p>Room no: {{roomNo}}</p> -->
+<app-header></app-header>
 <!-- {{ rooms?.availableRooms ?? "No available roooms"}} -->
 <div *ngIf="rooms.availableRooms>0">
     <div [hidden]="hiderooms">
@@ -18,3 +18,10 @@
 <div *ngIf="selectedRoom">
     {{selectedRoom|json}}
 </div>
+
+<div>
+    <button (click)="addRoom()">Add Room</button>
+</div>
+
+
+<app-employee></app-employee>
