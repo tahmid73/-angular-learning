@@ -1,0 +1,31 @@
+    <table class="table table-striped">
+    <tr class="col">
+        <th scope="col">Index</th>
+        <th>Room Id</th>
+        <th scope="col">Room Type</th>
+        <th scope="col">amenities</th>
+        <th scope="col">price</th>
+        <th scope="col">checkInTime</th>
+        <th scope="col">checkOutTime</th>
+        <th scope="col">Availibility</th>
+        <th scope="col"> Photo </th>
+        <th scope="col">Select</th>
+    </tr>
+    <tr class="col" [ngClass]="e? 'even':'odd'" *ngFor="let room of roomList|slice:0:2 let e=even; let o=odd">
+        <td>{{e?"even":"odd"}}</td>
+        <td>{{room.roomId}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.amenities}}</td>
+        <td>{{room.price}}</td>
+        <td>{{room.checkInTime|date}}</td>
+        <td>{{room.checkOutTime|date}}</td>
+        <td>{{room.availibility}}</td>
+        <td><img width="80%" height="80" src="{{room.photos}}" alt=""></td>
+        <td><button
+            class="btn btn-primary"
+            (click)="SelectRoom(room)"
+            >
+                Select
+        </button></td>
+    </tr>
+</table>
