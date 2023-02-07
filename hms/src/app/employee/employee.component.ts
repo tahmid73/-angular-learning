@@ -15,6 +15,6 @@ export class EmployeeComponent implements OnInit{
   roomList:RoomList[]=[]
 
   ngOnInit():void{
-    this.roomList=this.roomService.getRooms()
+    // this.roomList=this.roomService.getRooms()
   }
 }

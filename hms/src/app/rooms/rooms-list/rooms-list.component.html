@@ -13,19 +13,22 @@
     </tr>
     <tr class="col" [ngClass]="e? 'even':'odd'" *ngFor="let room of roomList let e=even; let o=odd">
         <td>{{e?"even":"odd"}}</td>
-        <td>{{room.roomId}}</td>
+        <td>{{room.roomNumber}}</td>
         <td>{{room.roomType}}</td>
         <td>{{room.amenities}}</td>
         <td>{{room.price}}</td>
-        <td>{{room.checkInTime|date}}</td>
-        <td>{{room.checkOutTime|date}}</td>
-        <td>{{room.availibility}}</td>
+        <td>{{room.checkinTime|date}}</td>
+        <td>{{room.checkoutTime|date}}</td>
+        <td>{{room.rating}}</td>
         <td><img width="80%" height="80" src="{{room.photos}}" alt=""></td>
-        <td><button
+        <td>
+            <!-- <button
             class="btn btn-primary"
             (click)="SelectRoom(room)"
             >
                 Select
-        </button></td>
+            </button> -->
+            <button class="btn btn-primary" [routerLink]="['/rooms',room.roomNumber]">Book</button>
+        </td>
     </tr>
 </table>

@@ -10,18 +10,25 @@
     </div>
     <button (click)="toggle()">{{ buttonName }}</button>
 </div>
-
-<app-rooms-list [roomList]="roomList"
-(selectedRoom)="selectRoom($event)"></app-rooms-list>
-<!-- {{roomList|json}} -->
-
+<h1>{{getError$|async}}</h1>
+<h1>Number of rooms:{{roomsCount$|async}}</h1>
+<div *ngIf="rooms$|async as rooms">
+    <app-rooms-list [roomList]="rooms" (selectedRoom)="selectRoom($event)"></app-rooms-list>
+    <!-- {{roomList|json}} -->
+</div>
 <div *ngIf="selectedRoom">
     {{selectedRoom|json}}
 </div>
 
 <div>
-    <button (click)="addRoom()">Add Room</button>
+    <button class="btn btn-primary" (click)="addRoom()">Add Room</button>
 </div>
 
+<div>
+    <button class="btn btn-primary" (click)="updateRoom()">Update Room</button>
+</div>
 
+<div>
+    <button class="btn btn-primary" (click)="deleteRoom()">Delete Room</button>
+</div>
 <app-employee></app-employee>

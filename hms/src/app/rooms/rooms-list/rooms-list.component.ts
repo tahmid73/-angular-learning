@@ -9,7 +9,7 @@ import { RoomList } from '../rooms';
 })
 export class RoomsListComponent implements OnInit{
   
-  @Input() roomList:RoomList[]=[];
+  @Input() roomList:RoomList[]|null=[];
   @Output() selectedRoom = new EventEmitter<RoomList>();
 
   
