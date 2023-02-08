@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RoomsComponent } from './rooms/rooms.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
+
 import { HeaderComponent } from './header/header.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
@@ -19,9 +19,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
-import { RoomsAddComponent } from './rooms/rooms-add/rooms-add.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { LoginComponent } from './login/login.component';
+import { HoverDirective } from './hover.directive';
+import { EmailValidatorDirective } from './login/email-validator.directive';
+import { RoomsModule } from './rooms/rooms.module';
+import { HeaderModule } from './header/header.module';
 
 
 function initFactory (InitService: InitService) {
@@ -31,18 +35,20 @@ function initFactory (InitService: InitService) {
 @NgModule({
   declarations: [
     AppComponent,
-    RoomsComponent,
-    RoomsListComponent,
-    HeaderComponent,
+    LoginComponent,
     EmployeeComponent,
     AppNavComponent,
     NotFoundComponent,
-    RoomsBookingComponent,
-    RoomsAddComponent
+    EmployeeListComponent,
+
+    HoverDirective,
+    EmailValidatorDirective,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RoomsModule,
+    HeaderModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
@@ -51,7 +57,8 @@ function initFactory (InitService: InitService) {
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [
     {

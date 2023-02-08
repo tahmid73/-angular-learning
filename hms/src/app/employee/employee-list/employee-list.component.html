@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <thead>
+        <tr class="col">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeeList">
+            <td scope="col">{{employee.eId}}</td>
+            <td scope="col">{{employee.name}}</td>
+            <td scope="col">{{employee.email}}</td>
+        </tr>
+    </tbody>
+</table>

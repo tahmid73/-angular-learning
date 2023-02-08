@@ -1,7 +1,7 @@
 <!-- <p>Room no: {{roomNo}}</p> -->
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 <!-- {{ rooms?.availableRooms ?? "No available roooms"}} -->
-<div *ngIf="rooms.availableRooms>0">
+<!-- <div *ngIf="rooms.availableRooms>0">
     <div [hidden]="hiderooms">
         No of rooms:
         <div [innerText]="roomNo"></div>
@@ -9,7 +9,7 @@
     <div [ngStyle]="{'color':rooms.availableRooms? 'green':'red'}">
     </div>
     <button (click)="toggle()">{{ buttonName }}</button>
-</div>
+</div> -->
 <h1>{{getError$|async}}</h1>
 <h1>Number of rooms:{{roomsCount$|async}}</h1>
 <div *ngIf="rooms$|async as rooms">
@@ -21,14 +21,14 @@
 </div>
 
 <div>
-    <button class="btn btn-primary" (click)="addRoom()">Add Room</button>
+    <button class="btn btn-primary" routerLink="add">Add Room</button>
 </div>
-
+<!-- 
 <div>
     <button class="btn btn-primary" (click)="updateRoom()">Update Room</button>
 </div>
-
+-->
 <div>
     <button class="btn btn-primary" (click)="deleteRoom()">Delete Room</button>
-</div>
-<app-employee></app-employee>
+</div> 
+<router-outlet></router-outlet>

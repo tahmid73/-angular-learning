@@ -114,7 +114,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   }
 
   deleteRoom () {
-    this.roomService.deleteRoom('3').subscribe((data) => {
+    this.roomService.deleteRoom('9201f3b4-81e8-4763-8e05-2f45580a26f1').subscribe((data) => {
       this.roomList = data
     })
   }
