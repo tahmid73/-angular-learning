@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { catchError, map, Observable, of, Subject, Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
+import { ConfigService } from './services/config.service';
 import { RoomsService } from './services/rooms.service';
 
 @Component({
@@ -52,7 +53,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     map((rooms)=>rooms.length)
   )
 
-  constructor(private roomService: RoomsService) { }
+  constructor(private roomService: RoomsService,private configService:ConfigService) { }
 
 
   ngAfterViewInit (): void {

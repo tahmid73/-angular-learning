@@ -26,6 +26,7 @@ import { HoverDirective } from './hover.directive';
 import { EmailValidatorDirective } from './login/email-validator.directive';
 import { RoomsModule } from './rooms/rooms.module';
 import { HeaderModule } from './header/header.module';
+import { RouteConfigToken } from './rooms/services/routeConfig.service';
 
 
 function initFactory (InitService: InitService) {
@@ -48,7 +49,6 @@ function initFactory (InitService: InitService) {
     BrowserModule,
     RoomsModule,
     HeaderModule,
-
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
@@ -64,6 +64,10 @@ function initFactory (InitService: InitService) {
     {
       provide: APP_SERVICE_CONFIG,
       useValue: APP_CONFIG
+    },
+    {
+      provide:RouteConfigToken,
+      useValue:{title:'Home'}, 
     },
     {
       provide: HTTP_INTERCEPTORS,
