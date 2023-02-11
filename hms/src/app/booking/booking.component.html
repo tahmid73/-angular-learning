@@ -151,9 +151,42 @@
     </mat-form-field>
   
   </div>
+
+  <div formArrayName="guests">
+    <div *ngFor="let guest of guests.controls let i=index">
+      <div [formGroupName]="i">
+      <mat-form-field>
+        <input 
+          type="text"
+          matInput
+          formControlName="guestName"
+          placeholder="Guests Name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input 
+          type="number"
+          matInput
+          formControlName="age"
+          placeholder="Guests Age"
+        />
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <input 
+          type="email"
+          matInput
+          [formControlName]="i"
+          placeholder="Guests Email"
+        />
+      </mat-form-field> -->
+    </div>
+    </div>
+  </div>
+
   <div>
     <button mat-raised-button color="primary" type="button" (click)="addGuest()">Add Guest</button>
   </div>
+
   <button mat-raised-button color="primary">Submit</button>
 </form>
 
