@@ -5,7 +5,10 @@ import { BookingRoutingModule } from './booking-routing.module';
 import { BookingComponent } from './booking.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,11 @@ import { MatInputModule } from '@angular/material/input'
     BookingRoutingModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
   ]
 })
 export class BookingModule { }
