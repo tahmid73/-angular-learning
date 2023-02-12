@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'',redirectTo:'/login',pathMatch:'full'},
   { path: 'booking/:roomId', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
+  { path: 'comments', loadChildren: () => import('./comment/comment.module').then(m => m.CommentModule) },
   {path:'**',component:NotFoundComponent},
 ];
 

@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,7 @@ import { RoomsModule } from './rooms/rooms.module';
 import { HeaderModule } from './header/header.module';
 import { RouteConfigToken } from './rooms/services/routeConfig.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { GlobalErrorHandler } from './errorHandler.service';
 
 
 function initFactory (InitService: InitService) {
@@ -42,7 +43,6 @@ function initFactory (InitService: InitService) {
     AppNavComponent,
     NotFoundComponent,
     EmployeeListComponent,
-
     HoverDirective,
     EmailValidatorDirective,
   ],
@@ -60,16 +60,18 @@ function initFactory (InitService: InitService) {
     MatListModule,
     FormsModule,
     AppRoutingModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [
     {
       provide: APP_SERVICE_CONFIG,
-      useValue: APP_CONFIG
+      useValue: APP_CONFIG,
+      multi: true
     },
     {
       provide:RouteConfigToken,
-      useValue:{title:'Home'}, 
+      useValue:{title:'Home'},
+      multi:true 
     },
     {
       provide: HTTP_INTERCEPTORS,
@@ -81,6 +83,10 @@ function initFactory (InitService: InitService) {
       useFactory: initFactory,
       deps: [InitService],
       multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass:GlobalErrorHandler
     }
   ],
   bootstrap: [AppComponent]
