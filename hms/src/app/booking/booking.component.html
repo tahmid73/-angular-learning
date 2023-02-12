@@ -2,176 +2,122 @@
 {{bookingForm.pristine|json}}
 {{bookingForm.dirty|json}}
 <br> <br>
+
+<div>
+  <button mat-raised-button color="primary" type="button" (click)="addPassport()">
+    Add Passport
+  </button>
+  <br>
+  <br>
+
+  <button mat-raised-button color="primary" type="button" (click)="deletePassport()">
+    Delete Passport
+  </button>
+  <br>
+  <br>
+
+</div>
+
 <form [formGroup]="bookingForm" (ngSubmit)="addBooking()">
+  <mat-form-field *ngIf="bookingForm.get('passport')" appearance="outline">
+    <mat-label>Passport Number</mat-label>
+    <input type="text" matInput formControlName="passport" placeholder="Passport Number">
+  </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Booking Id</mat-label>
-    <input 
-      type="text"
-      matInput 
-      formControlName="bookingId"
-      placeholder="Booking Id">
+    <input type="text" matInput formControlName="bookingId" placeholder="Booking Id">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Room Id</mat-label>
-    <input 
-      type="text"
-      matInput 
-      formControlName="roomId"
-      placeholder="Room Id">
+    <input type="text" matInput formControlName="roomId" placeholder="Room Id">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Guest Email</mat-label>
-    <input 
-      type="text"
-      matInput 
-      formControlName="guestEmail"
-      placeholder="Guest Email">
+    <input type="text" matInput formControlName="guestEmail" placeholder="Guest Email">
+    <mat-error *ngIf="bookingForm.get('guestEmail')?.hasError('required')">
+        Guest email should be provided
+    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Booking Status</mat-label>
-    <input 
-      type="text"
-      matInput 
-      formControlName="bookingStatus"
-      placeholder="bookingStatus">
+    <input type="text" matInput formControlName="bookingStatus" placeholder="bookingStatus">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Booking Amount</mat-label>
-    <input 
-      type="number"
-      matInput 
-      formControlName="bookingAmount"
-      placeholder="bookingAmount">
+    <input type="number" matInput formControlName="bookingAmount" placeholder="bookingAmount">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Mobile Number</mat-label>
-    <input 
-      type="text"
-      matInput 
-      formControlName="mobileNumber"
-      placeholder="Mobile Number">
+    <input type="text" matInput formControlName="mobileNumber" placeholder="Mobile Number">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Check In Date</mat-label>
-    <input 
-      type="datetime"
-      matInput [matDatepicker]="picker1"
-      formControlName="checkinDate"
-      placeholder="Check In Date">
-      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
+    <input type="datetime" matInput [matDatepicker]="picker1" formControlName="checkinDate" placeholder="Check In Date">
+    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Check Out Date</mat-label>
-    <input 
-      type="datetime"
-      matInput [matDatepicker]="picker2"
-      formControlName="checkoutDate"
+    <input type="datetime" matInput [matDatepicker]="picker2" formControlName="checkoutDate"
       placeholder="Check In Date">
-      <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Booking Date</mat-label>
-    <input 
-      type="datetime"
-      matInput [matDatepicker]="picker3"
-      formControlName="bookingDate"
-      placeholder="Booking Date">
-      <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
-  <mat-datepicker #picker3></mat-datepicker>
+    <input type="datetime" matInput [matDatepicker]="picker3" formControlName="bookingDate" placeholder="Booking Date">
+    <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+    <mat-datepicker #picker3></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Guest Name</mat-label>
-    <input 
-      type="text"
-      matInput 
-      formControlName="guestName"
-      placeholder="Guest Name">
+    <input type="text" matInput formControlName="guestName" placeholder="Guest Name">
   </mat-form-field>
 
-  <div formGroupName="address"> 
+  <div formGroupName="address">
 
     <mat-form-field appearance="outline">
       <mat-label>Guest Address</mat-label>
-      <input 
-        type="text"
-        matInput 
-        formControlName="addressLine1"
-        placeholder="Address Line 1">
+      <input type="text" matInput formControlName="addressLine1" placeholder="Address Line 1">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Guest Address</mat-label>
-      <input 
-        type="text"
-        matInput 
-        formControlName="addressLine2"
-        placeholder="Address Line 2">
+      <input type="text" matInput formControlName="addressLine2" placeholder="Address Line 2">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>City</mat-label>
-      <input 
-        type="text"
-        matInput 
-        formControlName="city"
-        placeholder="City">
+      <input type="text" matInput formControlName="city" placeholder="City">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>State</mat-label>
-      <input 
-        type="text"
-        matInput 
-        formControlName="state"
-        placeholder="State">
+      <input type="text" matInput formControlName="state" placeholder="State">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Country</mat-label>
-      <input 
-        type="text"
-        matInput 
-        formControlName="country"
-        placeholder="Country">
+      <input type="text" matInput formControlName="country" placeholder="Country">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>ZipCode</mat-label>
-      <input 
-        type="text"
-        matInput 
-        formControlName="zipCode"
-        placeholder="ZipCode">
+      <input type="text" matInput formControlName="zipCode" placeholder="ZipCode">
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
       <mat-label>Count</mat-label>
-      <input 
-        type="number"
-        matInput 
-        formControlName="count"
-        placeholder="count">
-    </mat-form-field>
-  
+      <input type="number" matInput formControlName="count" placeholder="count">
+    </mat-form-field> -->
+
   </div>
 
   <div formArrayName="guests">
     <div *ngFor="let guest of guests.controls let i=index">
       <div [formGroupName]="i">
-      <mat-form-field>
-        <input 
-          type="text"
-          matInput
-          formControlName="guestName"
-          placeholder="Guests Name"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input 
-          type="number"
-          matInput
-          formControlName="age"
-          placeholder="Guests Age"
-        />
-      </mat-form-field>
-      <!-- <mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput formControlName="guestName" placeholder="Guests Name" />
+        </mat-form-field>
+        <mat-form-field>
+          <input type="number" matInput formControlName="age" placeholder="Guests Age" />
+        </mat-form-field>
+        <!-- <mat-form-field>
         <input 
           type="email"
           matInput
@@ -179,7 +125,13 @@
           placeholder="Guests Email"
         />
       </mat-form-field> -->
-    </div>
+
+      </div>
+      <div>
+        <button mat-raised-button color="primary" type="button" (click)="removeGuest(i)">
+          Remove Guest
+        </button>
+      </div>
     </div>
   </div>
 
@@ -189,4 +141,3 @@
 
   <button mat-raised-button color="primary">Submit</button>
 </form>
-
