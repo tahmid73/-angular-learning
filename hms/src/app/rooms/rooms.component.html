@@ -12,8 +12,14 @@
 </div> -->
 <h1>{{getError$|async}}</h1>
 <h1>Number of rooms:{{roomsCount$|async}}</h1>
+
+<div>
+    <input type="text" class="form-control" placeholder="Price Filter" [formControl]="priceFilter">
+    {{priceFilter.value}}
+</div>
+
 <div *ngIf="rooms$|async as rooms">
-    <app-rooms-list [roomList]="rooms" (selectedRoom)="selectRoom($event)"></app-rooms-list>
+    <app-rooms-list [rooms]="rooms" [price]="priceFilter.value?priceFilter.value:0" (selectedRoom)="selectRoom($event)"></app-rooms-list>
     <!-- {{roomList|json}} -->
 </div>
 <div *ngIf="selectedRoom">

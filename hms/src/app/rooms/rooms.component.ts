@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { catchError, map, Observable, of, Subject, Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
@@ -48,7 +49,8 @@ export class RoomsComponent implements OnInit, AfterViewInit {
       return of([])
     })
   );
-
+  
+  priceFilter=new FormControl(0)
   roomsCount$=this.roomService.getRooms$.pipe(
     map((rooms)=>rooms.length)
   )

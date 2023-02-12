@@ -15,7 +15,9 @@
         </tr>
     </thead>
 
-    <tr class="col"  *ngFor="let room of roomList ">
+    <tr class="col"  
+        *ngFor="let room of rooms | filter: price "
+    >
         <!-- <td scope="col">{{e?"even":"odd"}}</td> -->
         <td scope="col">{{room.roomNumber}}</td>
         <td scope="col">{{room.roomType}}</td>
@@ -32,7 +34,7 @@
             >
                 Select
             </button> -->
-            <button class="btn btn-secondary" [routerLink]="['/rooms',room.roomNumber]">Book</button>
+            <button class="btn btn-secondary" [routerLink]="['/booking',room.roomNumber]">Book</button>
         </td>
         <td>
             <button class="btn btn-secondary" [routerLink]="['/rooms/update',room.roomNumber]">Update</button>

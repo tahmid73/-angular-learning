@@ -6,11 +6,12 @@ import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { RoomsBookingComponent } from './rooms-booking/rooms-booking.component';
 import { RoomsAddComponent } from './rooms-add/rooms-add.component';
 import { RoomsUpdateComponent } from './rooms-update/rooms-update.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from '../header/header.module';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -21,6 +22,7 @@ import { HeaderModule } from '../header/header.module';
     RoomsBookingComponent,
     RoomsAddComponent,
     RoomsUpdateComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { HeaderModule } from '../header/header.module';
     HttpClientModule,
     LayoutModule,
     HeaderModule,
+    ReactiveFormsModule
   ]
 })
 export class RoomsModule { }

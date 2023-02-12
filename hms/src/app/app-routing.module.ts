@@ -8,7 +8,7 @@ const routes: Routes = [
   {path:'employee',component:EmployeeComponent,canActivate:[LoginGuard]},
   {path:'login',component:LoginComponent},
   {path:'',redirectTo:'/login',pathMatch:'full'},
-  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
+  { path: 'booking/:roomId', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
   {path:'**',component:NotFoundComponent},
 ];
 
