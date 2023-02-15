@@ -8,10 +8,11 @@
       <a mat-list-item [routerLink]="'rooms'">Room</a>
       <a mat-list-item [routerLink]="'employee'">Employee</a>
       <a mat-list-item [routerLink]="'rooms/add'">Add Rooms</a>
-      <a mat-list-item [routerLink]="'booking'">Booking</a>
-      <a mat-list-item [routerLink]="'login'">Login</a>
-      {{isHidden$}}
-      <a [hidden]="!isHidden$" mat-list-item [routerLink]="'login'">Logout</a>
+      <a mat-list-item [routerLink]="'comments'">Comments</a>
+      <!-- <a mat-list-item [routerLink]="'booking'">Booking</a> -->
+      <a mat-list-item [routerLink]="'login'">Login </a>
+      <!-- {{isHidden$}} -->
+      <!-- <a [hidden]="isHidden$" mat-list-item [routerLink]="">Logout</a> -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,7 +25,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>hms</span>
+      <span>Hotel Management System</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

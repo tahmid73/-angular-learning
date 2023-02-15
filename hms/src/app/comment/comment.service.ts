@@ -10,7 +10,7 @@ export class CommentService implements OnInit{
   constructor(private http:HttpClient) { }
 
   getComments(){
-    return this.http.get<Comments[]>('https://jsonplaceholder.typicode.com/comment');
+    return this.http.get<Comments[]>('https://jsonplaceholder.typicode.com/comments');
   }
 
   ngOnInit(): void {

@@ -2,9 +2,9 @@
     <div class="p-3 w-50">
       <label for="" class="form-label">Email</label>
       <input #emailControl="ngModel" appEmailValidator [(ngModel)]="email" type="email" name="email" id="" class="form-control" placeholder="example@mail.com" aria-describedby="helpId">
-      <div>
+      <!-- <div>
         {{emailControl.errors|json}}
-      </div>
+      </div> -->
       <small id="helpId" class="text-muted"></small>
     </div>
     <div class="p-3 w-50">
@@ -13,6 +13,4 @@
         <small id="helpId" class="text-muted"></small>
       </div>
     <input name="submit" (click)="login()" class="m-3 btn btn-secondary" type="button" value="Login">
-{{email}}
-{{password}}
 </form>

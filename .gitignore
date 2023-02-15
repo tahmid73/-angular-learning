@@ -10,6 +10,9 @@ ts/node_modules
 
 # Node
 /hms/node_modules
+/hapijs/node_modules
+/hapijs/.env
+/hapijs/test.rest
 npm-debug.log
 yarn-error.log
 

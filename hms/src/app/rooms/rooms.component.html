@@ -14,8 +14,8 @@
 <h1>Number of rooms:{{roomsCount$|async}}</h1>
 
 <div>
-    <input type="text" class="form-control" placeholder="Price dFilter" [formControl]="priceFilter">
-    {{priceFilter.value}}
+    <input type="text" class="form-control" placeholder="Price Filter" [formControl]="priceFilter">
+    <!-- {{priceFilter.value}} -->
 </div>
 
 <div *ngIf="rooms$|async as rooms">

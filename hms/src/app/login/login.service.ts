@@ -17,4 +17,8 @@ export class LoginService {
     }
     return this.isLoggedIn;
 }
+  logOut(){
+    this.isLoggedIn=false;
+    // localStorage.removeItem('email')
+  }
 }
